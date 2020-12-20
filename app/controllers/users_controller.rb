@@ -12,7 +12,7 @@ class UsersController < ApplicationController
         end
     end
     
-    #Loggin In
+    #Login In
     def login 
         @user = User.find_by(usernme: params[:username])
 
@@ -31,5 +31,5 @@ class UsersController < ApplicationController
     def user_params
         params.permit(:username, :password, :age)
     end
-        
+
 end
