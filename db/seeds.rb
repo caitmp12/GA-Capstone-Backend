@@ -14,3 +14,9 @@ Sitter.create([
     {name: "David", animals: "dogs, cats, pigs", walker: "yes", host: "yes", travel: "yes", grooming: "yes"},
     {name: "Layla", animals: "dogs, cats", walker: "yes", host: "no", travel: "yes", grooming: "no"}                    
 ])
+
+User.create(
+    username: "AlexLovesCheese", password: "gouda", age: 25
+)
+
+

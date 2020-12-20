@@ -24,6 +24,10 @@ default: &default
 development:
   <<: *default
   database: say_hi__api_development
+  username: caitlinmoore-penaskovic
+  password: Ca!tlin12
+  port: 5432
+  host: localhost
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -59,6 +63,7 @@ test:
   <<: *default
   database: say_hi__api_test
 
+
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -81,5 +86,6 @@ test:
 production:
   <<: *default
   database: say_hi__api_production
-  username: say_hi__api
-  password: <%= ENV['SAY_HI__API_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  
+  

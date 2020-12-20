@@ -34,3 +34,57 @@ Migrating to CreateSitters (20201219162846)
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[36mSitter Create (0.2ms)[0m  [1m[32mINSERT INTO "sitters" ("name", "animals", "walker", "host", "travel", "grooming", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Layla"], ["animals", "dogs, cats"], ["walker", "yes"], ["host", "no"], ["travel", "yes"], ["grooming", "no"], ["created_at", "2020-12-19 16:36:57.523789"], ["updated_at", "2020-12-19 16:36:57.523789"]]
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE DATABASE "say_hi__api_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE "say_hi__api_test" ENCODING = 'unicode'[0m
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (55.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "say_hi__api_development"[0m
+  [1m[35m (30.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "say_hi__api_test"[0m
+  [1m[35m (173.6ms)[0m  [1m[35mCREATE DATABASE "say_hi__api_development" ENCODING = 'unicode'[0m
+  [1m[35m (67.0ms)[0m  [1m[35mCREATE DATABASE "say_hi__api_test" ENCODING = 'unicode'[0m
+  [1m[35m (23.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5721663805881535575)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSitters (20201219162846)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "sitters" ("id" bigserial primary key, "name" character varying, "location" character varying, "animals" character varying, "walker" character varying, "host" character varying, "travel" character varying, "grooming" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201219162846"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20201220200115)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "password_digest" character varying, "age" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201220200115"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-12-20 20:56:47.660110"], ["updated_at", "2020-12-20 20:56:47.660110"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5721663805881535575)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSitter Create (10.3ms)[0m  [1m[32mINSERT INTO "sitters" ("name", "animals", "walker", "host", "travel", "grooming", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Kevin"], ["animals", "dogs, cats, reptiles, rabbits"], ["walker", "yes"], ["host", "yes"], ["travel", "yes"], ["grooming", "no"], ["created_at", "2020-12-20 21:00:22.894094"], ["updated_at", "2020-12-20 21:00:22.894094"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSitter Create (0.5ms)[0m  [1m[32mINSERT INTO "sitters" ("name", "animals", "walker", "host", "travel", "grooming", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Gina"], ["animals", "dogs and cats only"], ["walker", "yes"], ["host", "yes"], ["travel", "yes"], ["grooming", "yes"], ["created_at", "2020-12-20 21:00:22.908934"], ["updated_at", "2020-12-20 21:00:22.908934"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSitter Create (0.4ms)[0m  [1m[32mINSERT INTO "sitters" ("name", "animals", "walker", "host", "travel", "grooming", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Reynolds"], ["animals", "dogs, cats, reptiles, rodents, farm animals"], ["walker", "no"], ["host", "no"], ["travel", "yes"], ["grooming", "no"], ["created_at", "2020-12-20 21:00:22.913509"], ["updated_at", "2020-12-20 21:00:22.913509"]]
+  [1m[35m (7.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSitter Create (0.6ms)[0m  [1m[32mINSERT INTO "sitters" ("name", "animals", "walker", "host", "travel", "grooming", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Samantha"], ["animals", "dogs, cats, rabbits"], ["walker", "yes"], ["host", "yes"], ["travel", "yes"], ["grooming", "no"], ["created_at", "2020-12-20 21:00:22.928696"], ["updated_at", "2020-12-20 21:00:22.928696"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSitter Create (0.3ms)[0m  [1m[32mINSERT INTO "sitters" ("name", "animals", "walker", "host", "travel", "grooming", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "David"], ["animals", "dogs, cats, pigs"], ["walker", "yes"], ["host", "yes"], ["travel", "yes"], ["grooming", "yes"], ["created_at", "2020-12-20 21:00:22.936701"], ["updated_at", "2020-12-20 21:00:22.936701"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSitter Create (0.5ms)[0m  [1m[32mINSERT INTO "sitters" ("name", "animals", "walker", "host", "travel", "grooming", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Layla"], ["animals", "dogs, cats"], ["walker", "yes"], ["host", "no"], ["travel", "yes"], ["grooming", "no"], ["created_at", "2020-12-20 21:00:22.943699"], ["updated_at", "2020-12-20 21:00:22.943699"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "AlexLovesCheese"], ["password_digest", "$2a$12$8HnUQwqBqXLeQpzlcO8mTuKyM4.RMr2gJ2.p1mPlpZipZQ2Etb2zS"], ["age", 25], ["created_at", "2020-12-20 21:00:23.185667"], ["updated_at", "2020-12-20 21:00:23.185667"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
