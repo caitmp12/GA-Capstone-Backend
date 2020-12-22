@@ -222,3 +222,69 @@ Migrating to AddPriceToSitters (20201222010831)
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5721663805881535575)[0m
   [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[36mSitter Load (4.3ms)[0m  [1m[34mSELECT "sitters".* FROM "sitters" ORDER BY "sitters"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSitter Create (23.5ms)[0m  [1m[32mINSERT INTO "sitters" ("name", "animals", "walker", "host", "travel", "grooming", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Kevin"], ["animals", "dogs, cats, reptiles, rabbits"], ["walker", "yes"], ["host", "yes"], ["travel", "yes"], ["grooming", "no"], ["created_at", "2020-12-22 01:36:17.647579"], ["updated_at", "2020-12-22 01:36:17.647579"], ["price", "25.0"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSitter Create (0.7ms)[0m  [1m[32mINSERT INTO "sitters" ("name", "animals", "walker", "host", "travel", "grooming", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Gina"], ["animals", "dogs and cats only"], ["walker", "yes"], ["host", "yes"], ["travel", "yes"], ["grooming", "yes"], ["created_at", "2020-12-22 01:36:17.682950"], ["updated_at", "2020-12-22 01:36:17.682950"], ["price", "55.0"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSitter Create (0.6ms)[0m  [1m[32mINSERT INTO "sitters" ("name", "animals", "walker", "host", "travel", "grooming", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Reynolds"], ["animals", "dogs, cats, reptiles, rodents, farm animals"], ["walker", "no"], ["host", "no"], ["travel", "yes"], ["grooming", "no"], ["created_at", "2020-12-22 01:36:17.689799"], ["updated_at", "2020-12-22 01:36:17.689799"], ["price", "45.0"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSitter Create (0.4ms)[0m  [1m[32mINSERT INTO "sitters" ("name", "animals", "walker", "host", "travel", "grooming", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Samantha"], ["animals", "dogs, cats, rabbits"], ["walker", "yes"], ["host", "yes"], ["travel", "yes"], ["grooming", "no"], ["created_at", "2020-12-22 01:36:17.712512"], ["updated_at", "2020-12-22 01:36:17.712512"], ["price", "47.0"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSitter Create (0.3ms)[0m  [1m[32mINSERT INTO "sitters" ("name", "animals", "walker", "host", "travel", "grooming", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "David"], ["animals", "dogs, cats, pigs"], ["walker", "yes"], ["host", "yes"], ["travel", "yes"], ["grooming", "yes"], ["created_at", "2020-12-22 01:36:17.716022"], ["updated_at", "2020-12-22 01:36:17.716022"], ["price", "52.0"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSitter Create (0.4ms)[0m  [1m[32mINSERT INTO "sitters" ("name", "animals", "walker", "host", "travel", "grooming", "created_at", "updated_at", "price") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Layla"], ["animals", "dogs, cats"], ["walker", "yes"], ["host", "no"], ["travel", "yes"], ["grooming", "no"], ["created_at", "2020-12-22 01:36:17.719502"], ["updated_at", "2020-12-22 01:36:17.719502"], ["price", "35.0"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2020-12-21 20:37:51 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/caitlinmoore-penaskovic/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/railties-6.0.3.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/caitlinmoore-penaskovic/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/railties-6.0.3.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.5ms | Allocations: 315)
+Completed 200 OK in 14ms (Views: 11.7ms | ActiveRecord: 0.0ms | Allocations: 1596)
+
+
+Started GET "/sitters" for ::1 at 2020-12-21 20:37:55 -0500
+Processing by SittersController#index as HTML
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 181)
+
+
+  [1m[36mSitter Load (0.6ms)[0m  [1m[34mSELECT "sitters".* FROM "sitters" ORDER BY "sitters"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSitter Load (0.6ms)[0m  [1m[34mSELECT "sitters".* FROM "sitters" ORDER BY "sitters"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSitter Load (0.5ms)[0m  [1m[34mSELECT "sitters".* FROM "sitters" ORDER BY "sitters"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5721663805881535575)[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddRateToSitters (20201222014349)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.7ms)[0m  [1m[35mALTER TABLE "sitters" ADD "rate" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201222014349"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5721663805881535575)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSitter Create (0.7ms)[0m  [1m[32mINSERT INTO "sitters" ("name", "animals", "walker", "host", "travel", "grooming", "created_at", "updated_at", "rate") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Kevin"], ["animals", "dogs, cats, reptiles, rabbits"], ["walker", "yes"], ["host", "yes"], ["travel", "yes"], ["grooming", "no"], ["created_at", "2020-12-22 01:46:07.684605"], ["updated_at", "2020-12-22 01:46:07.684605"], ["rate", "25"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSitter Create (0.3ms)[0m  [1m[32mINSERT INTO "sitters" ("name", "animals", "walker", "host", "travel", "grooming", "created_at", "updated_at", "rate") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Gina"], ["animals", "dogs and cats only"], ["walker", "yes"], ["host", "yes"], ["travel", "yes"], ["grooming", "yes"], ["created_at", "2020-12-22 01:46:07.688507"], ["updated_at", "2020-12-22 01:46:07.688507"], ["rate", "55"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSitter Create (0.3ms)[0m  [1m[32mINSERT INTO "sitters" ("name", "animals", "walker", "host", "travel", "grooming", "created_at", "updated_at", "rate") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Reynolds"], ["animals", "dogs, cats, reptiles, rodents, farm animals"], ["walker", "no"], ["host", "no"], ["travel", "yes"], ["grooming", "no"], ["created_at", "2020-12-22 01:46:07.691653"], ["updated_at", "2020-12-22 01:46:07.691653"], ["rate", "45"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSitter Create (0.3ms)[0m  [1m[32mINSERT INTO "sitters" ("name", "animals", "walker", "host", "travel", "grooming", "created_at", "updated_at", "rate") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Samantha"], ["animals", "dogs, cats, rabbits"], ["walker", "yes"], ["host", "yes"], ["travel", "yes"], ["grooming", "no"], ["created_at", "2020-12-22 01:46:07.694704"], ["updated_at", "2020-12-22 01:46:07.694704"], ["rate", "47"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSitter Create (0.3ms)[0m  [1m[32mINSERT INTO "sitters" ("name", "animals", "walker", "host", "travel", "grooming", "created_at", "updated_at", "rate") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "David"], ["animals", "dogs, cats, pigs"], ["walker", "yes"], ["host", "yes"], ["travel", "yes"], ["grooming", "yes"], ["created_at", "2020-12-22 01:46:07.701858"], ["updated_at", "2020-12-22 01:46:07.701858"], ["rate", "52"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSitter Create (0.3ms)[0m  [1m[32mINSERT INTO "sitters" ("name", "animals", "walker", "host", "travel", "grooming", "created_at", "updated_at", "rate") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Layla"], ["animals", "dogs, cats"], ["walker", "yes"], ["host", "no"], ["travel", "yes"], ["grooming", "no"], ["created_at", "2020-12-22 01:46:07.708265"], ["updated_at", "2020-12-22 01:46:07.708265"], ["rate", "35"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSitter Load (0.5ms)[0m  [1m[34mSELECT "sitters".* FROM "sitters" ORDER BY "sitters"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
