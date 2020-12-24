@@ -464,3 +464,31 @@ Completed 500 Internal Server Error in 24ms (ActiveRecord: 10.3ms | Allocations:
 NoMethodError (undefined method `user=' for nil:NilClass):
   
 app/controllers/hosts_controller.rb:20:in `create'
+Started POST "/hosts/" for ::1 at 2020-12-24 10:20:27 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HostsController#create as */*
+  Parameters: {"name"=>"Alex", "animals"=>"dogs, cats, reptiles, rabbits", "walker"=>"yes", "grooming"=>"no", "rate"=>"25", "host"=>{"name"=>"Alex", "animals"=>"dogs, cats, reptiles, rabbits", "walker"=>"yes", "grooming"=>"no", "rate"=>"25"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_in_user'
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 10.4ms | Allocations: 13302)
+
+
+  
+NoMethodError (undefined method `user=' for nil:NilClass):
+  
+app/controllers/hosts_controller.rb:20:in `create'
+Started POST "/hosts/" for ::1 at 2020-12-24 10:21:39 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HostsController#create as */*
+  Parameters: {"name"=>"Alex", "animals"=>"dogs, cats, reptiles, rabbits", "walker"=>"yes", "grooming"=>"no", "rate"=>"25", "host"=>{"name"=>"Alex", "animals"=>"dogs, cats, reptiles, rabbits", "walker"=>"yes", "grooming"=>"no", "rate"=>"25"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_in_user'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/hosts_controller.rb:22:in `create'
+  [1m[36mHost Create (8.1ms)[0m  [1m[32mINSERT INTO "hosts" ("name", "animals", "walker", "grooming", "rate", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Alex"], ["animals", "dogs, cats, reptiles, rabbits"], ["walker", "yes"], ["grooming", "no"], ["rate", 25], ["user_id", 1], ["created_at", "2020-12-24 15:21:39.354532"], ["updated_at", "2020-12-24 15:21:39.354532"]]
+  ↳ app/controllers/hosts_controller.rb:22:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/hosts_controller.rb:22:in `create'
+Completed 201 Created in 37ms (Views: 0.7ms | ActiveRecord: 19.6ms | Allocations: 16469)
+
+
