@@ -17,7 +17,7 @@ class HostsController < ApplicationController
   # POST /hosts
   def create
     @host = Host.new(host_params)
-    @note.user = @user.id
+    @note.user = @user
 
     if @host.save
       render json: @host, status: :created, location: @host

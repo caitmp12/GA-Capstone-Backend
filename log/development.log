@@ -451,3 +451,16 @@ Processing by HostsController#index as */*
 Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 1.4ms | Allocations: 1705)
 
 
+Started POST "/hosts/" for ::1 at 2020-12-24 10:19:14 -0500
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HostsController#create as */*
+  Parameters: {"name"=>"Alex", "animals"=>"dogs, cats, reptiles, rabbits", "walker"=>"yes", "grooming"=>"no", "rate"=>"25", "host"=>{"name"=>"Alex", "animals"=>"dogs, cats, reptiles, rabbits", "walker"=>"yes", "grooming"=>"no", "rate"=>"25"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_in_user'
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 10.3ms | Allocations: 13302)
+
+
+  
+NoMethodError (undefined method `user=' for nil:NilClass):
+  
+app/controllers/hosts_controller.rb:20:in `create'
