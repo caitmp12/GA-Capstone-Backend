@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     
     #Login In
     def login 
-        @user = User.find_by(usernme: params[:username])
+        @user = User.find_by(username: params[:username])
 
         if @user && @user.authenticate(params[:password])
             token = encode_token({user_id: @user.id})
