@@ -1,9 +1,10 @@
 class HostsController < ApplicationController
   before_action :set_host, only: [:show, :update, :destroy]
+  before_action :authorized
 
   # GET /hosts
   def index
-    @hosts = Host.all
+    @hosts = Host.find_by user: @user.id
 
     render json: @hosts
   end
@@ -16,6 +17,7 @@ class HostsController < ApplicationController
   # POST /hosts
   def create
     @host = Host.new(host_params)
+    @note.user = @user.id
 
     if @host.save
       render json: @host, status: :created, location: @host
