@@ -492,3 +492,167 @@ Processing by HostsController#create as */*
 Completed 201 Created in 37ms (Views: 0.7ms | ActiveRecord: 19.6ms | Allocations: 16469)
 
 
+Started GET "/hosts/" for ::1 at 2020-12-24 10:23:04 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HostsController#index as */*
+  Parameters: {"name"=>"Alex", "animals"=>"dogs, cats, reptiles, rabbits", "walker"=>"yes", "grooming"=>"no", "rate"=>"25", "host"=>{"name"=>"Alex", "animals"=>"dogs, cats, reptiles, rabbits", "walker"=>"yes", "grooming"=>"no", "rate"=>"25"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_in_user'
+  [1m[36mHost Load (0.5ms)[0m  [1m[34mSELECT "hosts".* FROM "hosts" WHERE "hosts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/hosts_controller.rb:7:in `index'
+Completed 200 OK in 24ms (Views: 0.5ms | ActiveRecord: 10.6ms | Allocations: 13759)
+
+
+Started PUT "/hosts/1" for ::1 at 2020-12-24 10:23:44 -0500
+Processing by HostsController#update as */*
+  Parameters: {"name"=>"Alex", "animals"=>"dogs, cats, reptiles, rabbits", "walker"=>"yes", "grooming"=>"yes", "rate"=>"45", "id"=>"1", "host"=>{"name"=>"Alex", "animals"=>"dogs, cats, reptiles, rabbits", "walker"=>"yes", "grooming"=>"yes", "rate"=>"45"}}
+  [1m[36mHost Load (0.6ms)[0m  [1m[34mSELECT "hosts".* FROM "hosts" WHERE "hosts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/hosts_controller.rb:46:in `set_host'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_in_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/hosts_controller.rb:31:in `update'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/hosts_controller.rb:31:in `update'
+  [1m[36mHost Update (1.3ms)[0m  [1m[33mUPDATE "hosts" SET "grooming" = $1, "rate" = $2, "updated_at" = $3 WHERE "hosts"."id" = $4[0m  [["grooming", "yes"], ["rate", 45], ["updated_at", "2020-12-24 15:23:44.447427"], ["id", 1]]
+  ↳ app/controllers/hosts_controller.rb:31:in `update'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/hosts_controller.rb:31:in `update'
+Completed 200 OK in 39ms (Views: 0.3ms | ActiveRecord: 3.1ms | Allocations: 8389)
+
+
+Started PUT "/hosts/1" for ::1 at 2020-12-24 10:24:42 -0500
+Processing by HostsController#update as */*
+  Parameters: {"name"=>"Alex", "animals"=>"dogs, cats, reptiles, rabbits", "walker"=>"yes", "host"=>"yes", "travel"=>"no", "grooming"=>"yes", "rate"=>"45", "id"=>"1"}
+  [1m[36mHost Load (0.8ms)[0m  [1m[34mSELECT "hosts".* FROM "hosts" WHERE "hosts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/hosts_controller.rb:46:in `set_host'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_in_user'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 1.2ms | Allocations: 2364)
+
+
+  
+NoMethodError (undefined method `permit' for "yes":String):
+  
+app/controllers/hosts_controller.rb:51:in `host_params'
+app/controllers/hosts_controller.rb:31:in `update'
+Started PUT "/hosts/1" for ::1 at 2020-12-24 10:25:48 -0500
+Processing by HostsController#update as */*
+  Parameters: {"name"=>"Alex", "animals"=>"dogs, cats, reptiles, rabbits", "walker"=>"yes", "grooming"=>"yes", "rate"=>"45", "id"=>"1", "host"=>{"name"=>"Alex", "animals"=>"dogs, cats, reptiles, rabbits", "walker"=>"yes", "grooming"=>"yes", "rate"=>"45"}}
+  [1m[36mHost Load (0.5ms)[0m  [1m[34mSELECT "hosts".* FROM "hosts" WHERE "hosts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/hosts_controller.rb:46:in `set_host'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_in_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/hosts_controller.rb:31:in `update'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 2920)
+
+
+Started DELETE "/hosts/1" for ::1 at 2020-12-24 10:26:12 -0500
+Processing by HostsController#destroy as */*
+  Parameters: {"name"=>"Alex", "animals"=>"dogs, cats, reptiles, rabbits", "walker"=>"yes", "grooming"=>"yes", "rate"=>"45", "id"=>"1", "host"=>{"name"=>"Alex", "animals"=>"dogs, cats, reptiles, rabbits", "walker"=>"yes", "grooming"=>"yes", "rate"=>"45"}}
+  [1m[36mHost Load (0.5ms)[0m  [1m[34mSELECT "hosts".* FROM "hosts" WHERE "hosts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/hosts_controller.rb:46:in `set_host'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_in_user'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/hosts_controller.rb:40:in `destroy'
+  [1m[36mHost Destroy (0.4ms)[0m  [1m[31mDELETE FROM "hosts" WHERE "hosts"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/hosts_controller.rb:40:in `destroy'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/hosts_controller.rb:40:in `destroy'
+Completed 204 No Content in 10ms (ActiveRecord: 2.3ms | Allocations: 3292)
+
+
+Started GET "/hosts/1" for ::1 at 2020-12-24 10:26:15 -0500
+Processing by HostsController#show as */*
+  Parameters: {"name"=>"Alex", "animals"=>"dogs, cats, reptiles, rabbits", "walker"=>"yes", "grooming"=>"yes", "rate"=>"45", "id"=>"1", "host"=>{"name"=>"Alex", "animals"=>"dogs, cats, reptiles, rabbits", "walker"=>"yes", "grooming"=>"yes", "rate"=>"45"}}
+  [1m[36mHost Load (1.6ms)[0m  [1m[34mSELECT "hosts".* FROM "hosts" WHERE "hosts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/hosts_controller.rb:46:in `set_host'
+Completed 404 Not Found in 12ms (ActiveRecord: 1.6ms | Allocations: 681)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Host with 'id'=1):
+  
+app/controllers/hosts_controller.rb:46:in `set_host'
+Started POST "/hosts/" for ::1 at 2020-12-24 10:38:04 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HostsController#create as */*
+  Parameters: {"name"=>"Alex", "animals"=>"dogs, cats, reptiles, rabbits", "walker"=>"yes", "host"=>"yes", "travel"=>"no", "grooming"=>"yes", "rate"=>"48"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_in_user'
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 6.1ms | Allocations: 6961)
+
+
+  
+NoMethodError (undefined method `permit' for "yes":String):
+  
+app/controllers/hosts_controller.rb:51:in `host_params'
+app/controllers/hosts_controller.rb:19:in `create'
+Started POST "/hosts/" for ::1 at 2020-12-24 10:38:39 -0500
+Processing by HostsController#create as */*
+  Parameters: {"name"=>"Alex", "animals"=>"dogs, cats, reptiles, rabbits", "walker"=>"yes", "host"=>"yes", "travel"=>"no", "rate"=>"48"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_in_user'
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.4ms | Allocations: 1795)
+
+
+  
+NoMethodError (undefined method `permit' for "yes":String):
+  
+app/controllers/hosts_controller.rb:51:in `host_params'
+app/controllers/hosts_controller.rb:19:in `create'
+Started POST "/hosts" for ::1 at 2020-12-24 10:39:23 -0500
+Processing by HostsController#create as */*
+  Parameters: {"name"=>"Alex", "animals"=>"dogs, cats, reptiles, rabbits", "walker"=>"yes", "host"=>"yes", "travel"=>"no", "rate"=>"48"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_in_user'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.4ms | Allocations: 1777)
+
+
+  
+NoMethodError (undefined method `permit' for "yes":String):
+  
+app/controllers/hosts_controller.rb:51:in `host_params'
+app/controllers/hosts_controller.rb:19:in `create'
+Started POST "/hosts" for ::1 at 2020-12-24 10:40:10 -0500
+Processing by HostsController#create as */*
+  Parameters: {"name"=>"Alex", "animals"=>"dogs, cats, reptiles, rabbits", "walker"=>"yes", "host"=>"does host", "travel"=>"will travel", "grooming"=>"no", "rate"=>"48"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_in_user'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.7ms | Allocations: 1796)
+
+
+  
+NoMethodError (undefined method `permit' for "does host":String):
+  
+app/controllers/hosts_controller.rb:51:in `host_params'
+app/controllers/hosts_controller.rb:19:in `create'
+Started POST "/hosts" for ::1 at 2020-12-24 10:41:17 -0500
+Processing by HostsController#create as */*
+  Parameters: {"name"=>"Alex", "animals"=>"dogs, cats, reptiles, rabbits", "walker"=>"yes", "host"=>"does host", "travel"=>"will travel", "grooming"=>"no", "rate"=>48}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_in_user'
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.4ms | Allocations: 1778)
+
+
+  
+NoMethodError (undefined method `permit' for "does host":String):
+  
+app/controllers/hosts_controller.rb:51:in `host_params'
+app/controllers/hosts_controller.rb:19:in `create'
+Started POST "/hosts" for ::1 at 2020-12-24 10:41:42 -0500
+Processing by HostsController#create as */*
+  Parameters: {"name"=>"Alex", "animals"=>"dogs, cats, reptiles, rabbits", "walker"=>"yes", "rate"=>48, "host"=>{"name"=>"Alex", "animals"=>"dogs, cats, reptiles, rabbits", "walker"=>"yes", "rate"=>48}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_in_user'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/hosts_controller.rb:22:in `create'
+  [1m[36mHost Create (0.9ms)[0m  [1m[32mINSERT INTO "hosts" ("name", "animals", "walker", "rate", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Alex"], ["animals", "dogs, cats, reptiles, rabbits"], ["walker", "yes"], ["rate", 48], ["user_id", 1], ["created_at", "2020-12-24 15:41:42.984734"], ["updated_at", "2020-12-24 15:41:42.984734"]]
+  ↳ app/controllers/hosts_controller.rb:22:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/hosts_controller.rb:22:in `create'
+Completed 201 Created in 25ms (Views: 0.6ms | ActiveRecord: 6.6ms | Allocations: 12560)
+
+

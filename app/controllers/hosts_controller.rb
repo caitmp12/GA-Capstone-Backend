@@ -4,7 +4,7 @@ class HostsController < ApplicationController
 
   # GET /hosts
   def index
-    @hosts = Host.find_by user: @user.id
+    @hosts = Host.where user: @user.id
 
     render json: @hosts
   end
