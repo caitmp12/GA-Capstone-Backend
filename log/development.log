@@ -390,3 +390,64 @@ FOREIGN KEY ("user_id")
   [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5721663805881535575)[0m
   [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/login" for ::1 at 2020-12-24 09:55:17 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"AlexLovesCheese", "password"=>"[FILTERED]", "user"=>{"username"=>"AlexLovesCheese"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "AlexLovesCheese"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 223ms (Views: 0.4ms | ActiveRecord: 6.8ms | Allocations: 5335)
+
+
+Started GET "/hosts" for ::1 at 2020-12-24 09:56:29 -0500
+Processing by HostsController#index as */*
+  Parameters: {"username"=>"AlexLovesCheese", "password"=>"[FILTERED]", "host"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_in_user'
+  [1m[36mHost Load (1.4ms)[0m  [1m[34mSELECT "hosts".* FROM "hosts" WHERE "hosts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/hosts_controller.rb:7:in `index'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 4.8ms | Allocations: 1860)
+
+
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mHost Load (0.5ms)[0m  [1m[34mSELECT "hosts".* FROM "hosts" ORDER BY "hosts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/hosts" for ::1 at 2020-12-24 10:00:28 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HostsController#create as */*
+  Parameters: {"username"=>"AlexLovesCheese", "password"=>"[FILTERED]", "host"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_in_user'
+Completed 400 Bad Request in 12ms (ActiveRecord: 7.8ms | Allocations: 5955)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: host):
+  
+app/controllers/hosts_controller.rb:51:in `host_params'
+app/controllers/hosts_controller.rb:19:in `create'
+Started POST "/login" for ::1 at 2020-12-24 10:00:36 -0500
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"AlexLovesCheese", "password"=>"[FILTERED]", "user"=>{"username"=>"AlexLovesCheese"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "AlexLovesCheese"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 211ms (Views: 0.4ms | ActiveRecord: 1.0ms | Allocations: 1120)
+
+
+Started POST "/login" for ::1 at 2020-12-24 10:00:59 -0500
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"AlexLovesCheese", "password"=>"[FILTERED]", "user"=>{"username"=>"AlexLovesCheese"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "AlexLovesCheese"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+Completed 200 OK in 210ms (Views: 0.3ms | ActiveRecord: 0.9ms | Allocations: 913)
+
+
+Started GET "/hosts" for ::1 at 2020-12-24 10:01:11 -0500
+Processing by HostsController#index as */*
+  Parameters: {"username"=>"AlexLovesCheese", "password"=>"[FILTERED]", "host"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_in_user'
+  [1m[36mHost Load (0.9ms)[0m  [1m[34mSELECT "hosts".* FROM "hosts" WHERE "hosts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/hosts_controller.rb:7:in `index'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 1.4ms | Allocations: 1705)
+
+
